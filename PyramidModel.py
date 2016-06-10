@@ -2,23 +2,23 @@ class Pyramid():
     """docstring for Pyramid"""
     def __init__(self):
         self.py_card = Deck()
-        self.__py = []
-        for i in range(0, 7):
-            self.__py.append([])
-            for j in range(i+1):
-                self.__py[i].append(self.py_card.next())
-        self.__py.append([self.py_card.next(False)])
-        print(len(self.py_card.deck))
+        self.__py = newpy()
+        # for i in range(0, 7):
+        #     self.__py.append([])
+        #     for j in range(i+1):
+        #         self.__py[i].append(self.py_card.next())
+        # self.__py.append([self.py_card.next(False)])
+        # print(len(self.py_card.deck))
 
-    # def newpy(self):
-    #     tmp_py = []
-    #     for i in range(0, 7):
-    #         tmp_py.append([])
-    #         for j in range(i+1):
-    #             tmp_py[i].append(self.py_card.next())
-    #     tmp_py.append([self.py_card.next(False)])
-    #     print(len(self.py_card.deck))
-    #     return tmp_py
+    def newpy(self):
+        tmp_py = []
+        for i in range(0, 7):
+            tmp_py.append([])
+            for j in range(i+1):
+                tmp_py[i].append(self.py_card.next())
+        tmp_py.append([self.py_card.next(False)])
+        print(len(self.py_card.deck))
+        return tmp_py
 
     @property
     def py(self):
