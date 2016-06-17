@@ -2,7 +2,7 @@
 카드셋안에 실행파일 있어요.
 =======
 cardset-standard.zip <-- 카드이미지
-Pyramid2.XX.py <-- GUI버전 피라미드 솔리테어 // 2016.06.17 기준  2.18 리펙토링이 필요합니다
+Pyramid2.XX.py <-- GUI버전 피라미드 솔리테어 // 2016.06.17 기준  2.19 리펙토링이 필요합니다
 Pyramid1.XX.py <-- 터미널버전
 <<<<<<< HEAD
 >>>>>>> origin/master
