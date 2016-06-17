@@ -15,17 +15,14 @@ class PyramidController():
         self.nowsecond = int(time.strftime('%S'))
         self.Pyramid = Pyramid(Deck(), root, self.difficulty)
         self.animate()
-        # self.Pyramid.draw(root)
         self.Pyramid.print_py()
-        # self.Pyramid.py[6][6]
-        # self.Pyramid.joker(root,self.difficulty)
-        # self.play()
 
     def animate(self):
         self.canvas.delete(ALL)
-        timer = 300 - ((int(time.strftime('%H')) * 3600 + int(time.strftime('%M')) * 60 + int(time.strftime('%S'))) - (self.nowhour * 3600 + self.nowminate * 60 + self.nowsecond))
+        timer = 3 - ((int(time.strftime('%H')) * 3600 + int(time.strftime('%M')) * 60 + int(time.strftime('%S'))) - (self.nowhour * 3600 + self.nowminate * 60 + self.nowsecond))
         if timer == 0:
-            sys.exit(0)
+            
+            Reader.ox_widgets()
         self.canvas.create_text(28, 25,text=timer,fill="White")
         self.canvas.after(10, self.animate)
 
@@ -187,6 +184,7 @@ class Pyramid(Drawpile):
 
     
     def _sum(self, i, j):
+        self.isfail()
         self.cod.append((i,j))
         if self.total != 0:
             self.total += int(self.py[i][j]["text"])
@@ -209,7 +207,7 @@ class Pyramid(Drawpile):
                 self.cod = []         
 
     def nn(self, ll, i,j):
-        ll[i][j]["command"] = lambda: self._sum(i,j) #self.isselect(i,j)
+        ll[i][j]["command"] = lambda: self._sum(i,j) #print(ll[i][j]["state"] in ["normal"]) #self.isselect(i,j)
 
 
     def open_drawing(self):
@@ -280,6 +278,7 @@ class Pyramid(Drawpile):
             self.__py[x][y] = None
         self.open()
         self.print_py()
+        
 
     def draw(self):
         # self.d.destroy()
@@ -292,27 +291,31 @@ class Pyramid(Drawpile):
         else:
             self.j.place(x =420, y=500)
 
-    def isfail(self,difficulty):
+    def isfail(self):
         py_card = self.py
-        open_card_list = [self.drawpile[-1]]
+        open_card_list = []
+        if self.py[7] != []:
+            open_card_list = [self.py[7][0]]
         check_list = []
-        if difficulty == 0 :
-            if len(self.pile) == 1:
-                for i in py_card :
-                    for j in i :
-                        if j["state"] == normal :
-                            open_card_list.append(j)
-                for i in open_card_list :
-                    if i["text"] == 13 :
-                        return False
-                    for j in open_card_list :
-                        check_list.append(i["text"] + j["text"])
-                if 13 in check_list :
+        # if difficulty == 0 :
+        if self.pile == []:
+            for i in py_card :
+                for j in i :
+                    if j["state"] == "normal" :
+                        open_card_list.append(j)
+                        print(j["text"])
+            for i in open_card_list :
+                if i["text"] == 13 :
                     return False
-                else :
-                    return True
-            else:
+                for j in open_card_list :
+                    check_list.append(int(i["text"]) + int(j["text"]))
+            print(check_list)
+            if 13 in check_list :
                 return False
+            else :
+                sys.exit(0)
+        else:
+            return False
 
 
 main()
