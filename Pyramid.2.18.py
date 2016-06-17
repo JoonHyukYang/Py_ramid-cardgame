@@ -209,7 +209,7 @@ class Pyramid(Drawpile):
                 self.cod = []         
 
     def nn(self, ll, i,j):
-        ll[i][j]["command"] = lambda: self._sum(i,j) #ll[i][j]["text"] #self.isselect(i,j)
+        ll[i][j]["command"] = lambda: self._sum(i,j) #self.isselect(i,j)
 
 
     def open_drawing(self):
