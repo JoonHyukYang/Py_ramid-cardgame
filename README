@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 카드셋안에 실행파일 있어요.
+=======
+cardset-standard.zip <-- 카드이미지
+Pyramid2.XX.py <-- GUI버전 피라미드 솔리테어
+Pyramid1.XX.py <-- 터미널버전
+>>>>>>> origin/master
