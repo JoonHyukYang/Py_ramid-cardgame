@@ -3,7 +3,7 @@
 =======
 cardset-standard.zip <-- 카드이미지
 Pyramid2.XX.py <-- GUI버전 피라미드 솔리테어 // 2016.06.17 기준  2.19 리펙토링이 필요합니다
-Pyramid1.XX.py <-- 터미널버전
+Pyramid1.XX.py <-- 터미널버전 // 최신버전  1.12
 <<<<<<< HEAD
 >>>>>>> origin/master
 =======
