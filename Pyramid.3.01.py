@@ -26,7 +26,7 @@ class Card:
         cards = []
         for v in Card.__values:
             for s in Card.__suits:
-                cards.append(Card(ImageTk.PhotoImage(Image.open(v+s+".gif")), v))
+                cards.append(Card(ImageTk.PhotoImage(Image.open("cardset-standard/"+v+s+".gif")), v))
         random.shuffle(cards)
         return cards
 
@@ -40,8 +40,8 @@ class Deck:
 
 class Drawpile:
     def __init__(self, pile, root):
-        self.k = ImageTk.PhotoImage(Image.open("back192.gif"))
-        self.doh_pic = ImageTk.PhotoImage(Image.open("doh_pic.gif"))
+        self.k = ImageTk.PhotoImage(Image.open("cardset-standard/"+"back192.gif"))
+        self.doh_pic = ImageTk.PhotoImage(Image.open("cardset-standard/"+"doh_pic.gif"))
         self.pile = pile
 
     def doh(self,root) :
@@ -66,7 +66,7 @@ class Pyramid(Drawpile):
         self.count = 2 - difficulty
         self.root = root
         super().__init__(deck.deck, root)
-        self.b = ImageTk.PhotoImage(Image.open("back192.gif"))
+        self.b = ImageTk.PhotoImage(Image.open("cardset-standard/"+"back192.gif"))
         self.total = 0
         self.score = 0
         self.score_plus(0)
